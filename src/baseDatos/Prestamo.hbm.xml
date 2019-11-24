@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 23 nov. 2019 17:27:21 by Hibernate Tools 5.2.12.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="biblioteca" dynamic-insert="false" dynamic-update="false" mutable="true" name="baseDatos.Prestamo" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="prestamo">
+        <id name="idPrestamo" type="java.lang.Integer">
+            <column name="idPrestamo"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="baseDatos.Libro" embed-xml="true" fetch="select" insert="true" name="libro" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idLibro"/>
+        </many-to-one>
+        <many-to-one class="baseDatos.Usuario" embed-xml="true" fetch="select" insert="true" name="usuario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idUsuario"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="data" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="data"/>
+        </property>
+        <property generated="never" lazy="false" name="devolto" optimistic-lock="true" type="java.lang.Boolean" unique="false">
+            <column name="devolto"/>
+        </property>
+    </class>
+</hibernate-mapping>
